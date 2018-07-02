@@ -1,0 +1,36 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.jwt.server'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter')
+	runtime('com.h2database:h2')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+        compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.2.4'
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.0.1.RELEASE'
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-rest', version: '2.0.0.RELEASE'
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.0.0.RELEASE'
+        compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.0'
+}
